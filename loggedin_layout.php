@@ -21,7 +21,6 @@ $servername ="localhost";
 		//$userName = $row['userName'];
 		//$password = $row['password'];
 
-
 	?>
 <table width="100%" align="center" cellspacing="0" cellpadding="10" border="1">
     <tr>
@@ -34,7 +33,7 @@ $servername ="localhost";
                         </a>
                     </td>
                     <td align="right">
-                        Logged in as <a href="#"><?php echo $_SESSION["name"]?></a>&nbsp;|
+                        Logged in as <a href="#"><?php echo $_COOKIE['c_userName'];?></a>&nbsp;|
                         <a href="#">Logout</a>
                     </td>
                 </tr>

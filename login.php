@@ -9,8 +9,8 @@ $servername ="localhost";
 	
 	
 	
-	unset($_COOKIE['$userName']);
-	if(isset($_COOKIE['$userName']) )
+	//unset($_COOKIE['$userName']);
+	if(isset($_COOKIE['c_userName']) )
 	{
 		header("location: loggedin_layout.php");
 			
@@ -38,6 +38,9 @@ $servername ="localhost";
 		$userName = $row['userName'];
 		$password = $row['password'];
 		
+		//$c_userName = "user";
+		//$c_password = "password";
+		
 		
 	
 		
@@ -45,14 +48,18 @@ $servername ="localhost";
 		{
 			if(isset($_POST['remember']))
 			{
-				setcookie('$userName','$password', time()+(86400 *30), "/");
+				setcookie('c_userName',$userName, time()+(86400 *30), "/");
+				setcookie('c_password',$password, time()+(86400 *30), "/");
+				
+				header("location: loggedin_layout.php");
 			}
 			else
 			{
-				unset($_COOKIE['$userName']);
+				unset($_COOKIE[$userName]);
+				header("location: loggedin_layout.php");
 			}
 			
-			header("location: loggedin_layout.php");
+			
 			
 		}
 		
@@ -60,7 +67,7 @@ $servername ="localhost";
 		else 
 		{
 		
-		echo "failed";
+		echo "user name and password doesn't match";
 		}
 		
 	}
